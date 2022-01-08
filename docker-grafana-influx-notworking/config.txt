@@ -1,0 +1,13 @@
+# Após executar os comandos docker-compose up --build -d, realize os seguintes comandos
+curl -XPOST 'http://localhost:8086/query?u=admin&p=seletiva39' --data-urlencode 'q=CREATE DATABASE "sensor"'
+curl -XPOST 'http://localhost:8086/query?u=admin&p=seletiva39' --data-urlencode 'q=SHOW DATABASES'
+
+docker-compose exec influxdb sh
+# influx -username admin -password seletiva39
+> use sensor
+> create user sensor with PASSWORD 'seletiva39'
+> show users
+> grant all on sensor to sensor
+> show grants for sensor
+> exit
+# exit

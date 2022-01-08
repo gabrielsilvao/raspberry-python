@@ -1,0 +1,19 @@
+server {
+    listen 80 default_server;
+
+    location /temp {
+        proxy_pass http://192.168.3.151:5000/temp;
+    }
+
+    location /cpu {
+        proxy_pass http://192.168.3.151:5000/cpu;
+    }
+
+    location /gpu {
+        proxy_pass http://192.168.3.151:5000/gpu;
+    }
+
+    location /all {
+        proxy_pass http://192.168.3.151:5000/all;
+    }
+}
