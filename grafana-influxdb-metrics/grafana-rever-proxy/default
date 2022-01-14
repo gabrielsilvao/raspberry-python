@@ -1,0 +1,7 @@
+# Add this file in /etc/nginx/sites-enabled/default
+server {
+    listen 80 default_server;
+    location /grafana {
+            proxy_pass http://localhost:3000;
+    }
+}
