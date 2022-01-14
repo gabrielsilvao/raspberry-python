@@ -5,16 +5,8 @@ import board
 import adafruit_dht
 from influxdb import InfluxDBClient
 
-# Configure InfluxDB connection variables
-host = "localhost" # My Ubuntu NUC
-port = 8086 # default port
-user = "grafana" # the user/password created for the pi, with write access
-password = "seletiva39" 
-dbname = "home" # the database we created earlier
-interval = 60 # Sample period in seconds
-
 # Create the InfluxDB client object
-client = InfluxDBClient(host, port, user, password, dbname)
+client = InfluxDBClient(host="localhost", port="8086", username="grafana", password="seletiva39", dbname="home")
 
 # Enter the sensor details
 #sensor = Adafruit_DHT.DHT22
