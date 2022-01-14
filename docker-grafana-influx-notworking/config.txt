@@ -11,3 +11,13 @@ docker-compose exec influxdb sh
 > show grants for sensor
 > exit
 # exit
+
+---- influx instalado localmente
+influx
+CREATE DATABASE sensor
+USE sensor
+CREATE USER sensor WITH PASSWORD 'seletiva39'
+INSERT cpu,host=localhost,region=br value=0
+INSERT gpu,host=localhost,region=br value=0
+SHOW MEASUREMENTS
+SHOW SERIES
