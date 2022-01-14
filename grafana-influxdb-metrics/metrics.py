@@ -6,7 +6,7 @@ from influxdb import InfluxDBClient
 
 sensor = adafruit_dht.DHT11(board.D4)
 
-client = InfluxDBClient(host='localhost', port=8086)
+client = InfluxDBClient(host='localhost', port=8086, username='grafana', password='seletiva39', ssl=False, verifiy_ssl=False)
 
 temp = sensor.temperature
 humi = sensor.humidity
