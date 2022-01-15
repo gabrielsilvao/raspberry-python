@@ -1,0 +1,6 @@
+server {
+    listen 80 default_server;
+    location /remote_sensor {
+        proxy_pass http://localhost:5000/remote_sensor;
+    }
+}
