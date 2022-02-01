@@ -3,7 +3,8 @@
 influx
 CREATE DATABASE sensor
 USE sensor
-CREATE USER sensor WITH PASSWORD 'seletiva39'
+CREATE USER dbuser WITH PASSWORD 'seletiva39'
+GRANT ALL ON sensor TO dbuser
 INSERT cpu,host=localhost,region=br value=0
 INSERT gpu,host=localhost,region=br value=0
 SHOW MEASUREMENTS
