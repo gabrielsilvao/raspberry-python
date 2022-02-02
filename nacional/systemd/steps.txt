@@ -19,3 +19,5 @@ systemctl enable oled.service
 
 systemctl start oled
 systemctl status oled
+
+# The Python Script send_metrics.py must have shebang #!/bin/python3
