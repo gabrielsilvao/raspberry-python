@@ -3,15 +3,25 @@ import board
 import adafruit_dht
 import requests
 
-dhtDevice = adafruit_dht.DHT11(board.D17)
+sensor = adafruit_dht.DHT11(board.D17)
 
 while True:
-    temperature = dhtDevice.temperature
-    humidity = dhtDevice.humidity
+    try:
+        temperature = sensor.temperature
+        humidity = sensor.humidity
 
-    pload = 'temp,host=localhost value={0}'.format(temperature)
-    r = requests.post('http://localhost:8086/write?db=sensor&u=db&p=seletiva39', data=pload)
+        pload = 'temp,host=localhost value={0}'.format(temperature)
+        r = requests.post('http://localhost:8086/write?db=sensor&u=db&p=seletiva39', data=pload)
 
-    pload = 'humi,host=localhost value={0}'.format(humidity)
-    r = requests.post('http://localhost:8086/write?db=sensor&u=db&p=seletiva39', data=pload)
-    time.sleep(10)
+        pload = 'humi,host=localhost value={0}'.format(humidity)
+        r = requests.post('http://localhost:8086/write?db=sensor&u=db&p=seletiva39', data=pload)
+    
+    except RuntimeError as error:
+        print(error.args[0])
+        time.sleep(2.0)
+        continue
+    except Exception as error:
+        sensor.exit()
+        raise error
+
+    time.sleep(5)
