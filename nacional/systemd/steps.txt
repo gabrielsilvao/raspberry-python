@@ -4,9 +4,9 @@ vim /etc/systemd/system/oled.service
 
     [Service]
     Type=simple
-    ExecStart=/home/pi/Desktop/send_metrics.py
-    ExecStop=/home/pi/Desktop/send_metrics.py
-    ExecReload=/home/pi/Desktop/send_metrics.py
+    ExecStart=/home/pi/Desktop/oled.py
+    ExecStop=/home/pi/Desktop/oled.py
+    ExecReload=/home/pi/Desktop/oled.py
 
     [Install]
     WantedBy=multi-user.target
