@@ -1,0 +1,21 @@
+vim /etc/systemd/system/oled.service
+    [Unit]
+    Description=Start OLED Python Script
+
+    [Service]
+    Type=simple
+    ExecStart=/home/pi/Desktop/send_metrics.py
+    ExecStop=/home/pi/Desktop/send_metrics.py
+    ExecReload=/home/pi/Desktop/send_metrics.py
+
+    [Install]
+    WantedBy=multi-user.target
+
+chmod 777 /etc/systemd/system/oled.service
+ln -s /etc/systemd/system/oled.service /lib/systemd/system/
+
+systemctl daemon-reload
+systemctl enable oled.service
+
+systemctl start oled
+systemctl status oled
